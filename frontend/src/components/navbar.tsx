@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import React, { useState } from "react";
-import { Button } from "./button";
+import { Button } from "../components/ui/button";
 import { Menu, X } from "lucide-react";
 
 const Navbar = () => {

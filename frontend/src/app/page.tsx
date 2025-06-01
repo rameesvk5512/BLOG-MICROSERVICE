@@ -1,14 +1,11 @@
-import { Button } from '@/components/ui/button'
 import React from 'react'
 
-const 
-home = () => {
+const Home = () => {
   return (
     <div>
-     <Button >click me</Button>
+      
     </div>
   )
 }
 
-export default 
-home
+export default Home
