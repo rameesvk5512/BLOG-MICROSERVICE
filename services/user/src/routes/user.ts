@@ -1,10 +1,15 @@
-// routes/userRoutes.ts
+
+
 import express from 'express';
-import { userLogin } from '../controllers/user.js'; // ✅ use `.js` if using ES modules
+import {  getMyProfile, getUserProfile, updateUserProfile, userLogin } from '../controllers/user.js';
 
 const router = express.Router();
 
-router.post('/login', userLogin);
+router.post('/login',userLogin);
+router.get('/me',getMyProfile);
+router.get('/user/:id',getUserProfile);
+router.get('/update-profile/',updateUserProfile);
+
 
 export default router;
 []
