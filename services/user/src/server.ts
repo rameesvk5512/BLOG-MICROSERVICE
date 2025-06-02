@@ -2,6 +2,7 @@ import express  from 'express'
 import dotenv from 'dotenv'
 import dbConnect from './utils/db.js'
 import userRoutes from './routes/user.js'
+import cors from 'cors'
 const app=express()
 dotenv.config()
 const PORT=process.env.PORT

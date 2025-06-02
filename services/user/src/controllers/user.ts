@@ -1,15 +1,15 @@
 import { Request, Response } from "express";
 import jwt from "jsonwebtoken";
-import User, { IUser } from "../mode/user.js";
+import User, { IUser } from "../model/user.js";
 
 const JWT_SECRET = process.env.JWT_SECRET || "your_default_secret";
 
-// Custom Request with authenticated user
+
 export interface AuthenticatedRequest extends Request {
   user: IUser | null;
 }
 
-// Login Controller
+
 export const userLogin = async (req: Request, res: Response): Promise<Response> => {
   try {
     const { email, password } = req.body;

@@ -1,6 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import { sequelize } from './models/index.js';
+import { sequelize } from './utils/db';
 import blogRoutes from './routes/blog.js'
 dotenv.config();
 
