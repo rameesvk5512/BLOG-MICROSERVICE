@@ -1,5 +1,6 @@
 
 import { Blog } from "../models/Blog.js";
+import { invalidateCacheJob } from "../utils/rabitMq.js";
 
 
 
@@ -10,7 +11,7 @@ try {
   const {title,description,blogContent,category}=req.body
 
 await Blog.create({title,description,blogContent,category})
-
+invalidateCacheJob(['blogs:*'])
 res.status(200).json({message:"new blog created"})
 } catch (error) {
   
@@ -30,7 +31,7 @@ export const updateBlog = async (req, res) => {
       { title, description, blogContent, category },
       { where: { id } }
     );
-
+invalidateCacheJob(['blogs:*'])
     return res.status(200).json({ message: 'Blog updated successfully' });
   } catch (error) {
     console.error('Update error:', error);
@@ -44,6 +45,7 @@ try {
   await Blog.destroy({
   where:{id}
 })
+invalidateCacheJob(['blogs:*'])
 return res.status(200).json({ message: 'Blog deleted successfully' });
 
 } catch (error) {

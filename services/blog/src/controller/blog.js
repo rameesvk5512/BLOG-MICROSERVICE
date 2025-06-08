@@ -1,7 +1,7 @@
 
 import { sequelize } from "../utils/db.js";
 import { QueryTypes } from "sequelize";
-import { redisClient } from "../server.js";
+import { redisClient } from "../utils/reddisClient.js";
 
 
 export const getAllBlogs=async(req,res)=>{
@@ -21,6 +21,7 @@ try {
         const blogs = await sequelize.query('SELECT * FROM blogs', {
   type: QueryTypes.SELECT,
 });
+console.log("bbbbbblogs",blogs);
 
 await redisClient.set(cachKey,JSON.stringify(blogs),{EX:3600})
 console.log("serving from db");
