@@ -1,4 +1,3 @@
-
 import jwt from 'jsonwebtoken';
 
 export const verifyToken = (role = null) => {
@@ -28,4 +27,3 @@ export const verifyToken = (role = null) => {
     }
   };
 };
-
